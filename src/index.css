@@ -8,60 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 220 15% 4%;
-    --foreground: 0 0% 100%;
+    --background: 240 10% 4%;
+    --foreground: 180 100% 95%;
 
-    --card: 220 10% 8%;
-    --card-foreground: 0 0% 100%;
+    --card: 240 10% 6%;
+    --card-foreground: 180 100% 95%;
 
-    --popover: 220 10% 8%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 180 100% 95%;
 
-    --primary: 280 100% 62%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 240 10% 4%;
 
-    --secondary: 220 10% 15%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 300 100% 50%;
+    --secondary-foreground: 240 10% 4%;
 
-    --muted: 220 10% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 240 10% 12%;
+    --muted-foreground: 180 20% 60%;
 
-    --accent: 180 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 270 100% 65%;
+    --accent-foreground: 240 10% 4%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
 
-    --border: 220 10% 15%;
-    --input: 220 10% 15%;
-    --ring: 280 100% 62%;
+    --border: 240 10% 15%;
+    --input: 240 10% 12%;
+    --ring: 180 100% 50%;
 
     --radius: 0.75rem;
-    
-    /* Neon colors for the futuristic design */
+
+    /* Neon glow colors */
     --neon-cyan: 180 100% 50%;
-    --neon-purple: 280 100% 62%;
-    --glow-cyan: 180 100% 50%;
-    --glow-purple: 280 100% 62%;
-    
-    /* Animations */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --neon-magenta: 300 100% 50%;
+    --neon-purple: 270 100% 65%;
+    --neon-blue: 210 100% 50%;
 
-    --sidebar-background: 0 0% 98%;
+    /* Glow effects */
+    --glow-cyan: 0 0 20px hsl(var(--neon-cyan)), 0 0 40px hsl(var(--neon-cyan));
+    --glow-magenta: 0 0 20px hsl(var(--neon-magenta)), 0 0 40px hsl(var(--neon-magenta));
+    --glow-purple: 0 0 20px hsl(var(--neon-purple)), 0 0 40px hsl(var(--neon-purple));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Gradients */
+    --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-magenta)));
+    --gradient-bg: linear-gradient(180deg, hsl(var(--background)), hsl(240 10% 8%));
   }
 
   .dark {

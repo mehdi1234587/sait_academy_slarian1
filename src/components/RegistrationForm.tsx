@@ -46,36 +46,36 @@ const RegistrationForm = () => {
   };
 
   return (
-    <section id="registration" className="py-12 sm:py-16 md:py-20 bg-card/30 backdrop-blur-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="registration" className="relative py-16 sm:py-20 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-8 sm:mb-12 animate-fade-in">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_auto]">
-              خرید دوره کامل و اصلی با ۶۰٪ تخفیف
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 neon-text">
+              دریافت دوره کامل با تخفیف ۶۰٪
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-foreground/80 text-lg sm:text-xl">
               برای ثبت‌نام در دوره، اطلاعات خود را وارد کنید
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 bg-card/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-border/50 shadow-lg animate-fade-in">
-            <div className="space-y-2">
-              <Label htmlFor="fullName" className="text-base font-medium">
-                نام و نام خانوادگی
+          <form onSubmit={handleSubmit} className="neon-glass rounded-3xl p-6 sm:p-8 md:p-10 space-y-6 animate-fade-in">
+            <div className="space-y-3">
+              <Label htmlFor="fullName" className="text-lg font-medium text-neon-cyan">
+                نام کامل
               </Label>
               <Input
                 id="fullName"
                 type="text"
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
-                placeholder="نام کامل خود را وارد کنید"
-                className="h-12 text-base bg-secondary/50 border-border/50 focus:border-primary transition-colors"
+                placeholder="نام و نام خانوادگی خود را وارد کنید"
+                className="h-14 text-base bg-background/50 border-neon-cyan/30 focus:border-neon-cyan focus:ring-2 focus:ring-neon-cyan/50 transition-all rounded-xl"
                 disabled={isSubmitting}
               />
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="whatsapp" className="text-base font-medium">
+            <div className="space-y-3">
+              <Label htmlFor="whatsapp" className="text-lg font-medium text-neon-purple">
                 شماره واتساپ
               </Label>
               <Input
@@ -84,7 +84,7 @@ const RegistrationForm = () => {
                 value={whatsappNumber}
                 onChange={(e) => setWhatsappNumber(e.target.value)}
                 placeholder="شماره واتساپ خود را وارد کنید"
-                className="h-12 text-base bg-secondary/50 border-border/50 focus:border-primary transition-colors"
+                className="h-14 text-base bg-background/50 border-neon-purple/30 focus:border-neon-purple focus:ring-2 focus:ring-neon-purple/50 transition-all rounded-xl"
                 dir="ltr"
                 disabled={isSubmitting}
               />
@@ -92,18 +92,16 @@ const RegistrationForm = () => {
 
             <Button 
               type="submit"
-              className="w-full h-12 text-base font-semibold glow-button bg-primary hover:bg-primary/90"
+              className="w-full h-14 text-lg font-bold neon-button rounded-xl mt-8"
               disabled={isSubmitting}
             >
-              <span className="relative z-10">
-                {isSubmitting ? "در حال ارسال..." : "ارسال"}
-              </span>
+              {isSubmitting ? "در حال ارسال..." : "ارسال اطلاعات"}
             </Button>
 
             {isSuccess && (
-              <div className="p-4 rounded-lg bg-primary/10 border border-primary/30 animate-fade-in">
-                <p className="text-center text-base leading-relaxed">
-                  اطلاعات شما ثبت شد. در صورت داشتن ظرفیت خالی برای ثبت‌نام با شما تماس گرفته خواهد شد.
+              <div className="neon-glass p-6 rounded-2xl border-neon-cyan/50 animate-fade-in">
+                <p className="text-center text-base sm:text-lg leading-relaxed">
+                  اطلاعات شما با موفقیت ثبت شد. در صورت وجود ظرفیت، با شما تماس خواهیم گرفت.
                 </p>
               </div>
             )}

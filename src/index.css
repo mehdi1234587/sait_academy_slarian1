@@ -8,40 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 260 15% 4%;
+    --background: 220 15% 4%;
     --foreground: 0 0% 100%;
 
-    --card: 260 10% 8%;
+    --card: 220 10% 8%;
     --card-foreground: 0 0% 100%;
 
-    --popover: 260 10% 8%;
+    --popover: 220 10% 8%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 265 80% 62%;
+    --primary: 280 100% 62%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 260 10% 15%;
+    --secondary: 220 10% 15%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 260 10% 15%;
+    --muted: 220 10% 15%;
     --muted-foreground: 0 0% 70%;
 
-    --accent: 265 80% 62%;
+    --accent: 180 100% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 260 10% 15%;
-    --input: 260 10% 15%;
-    --ring: 265 80% 62%;
+    --border: 220 10% 15%;
+    --input: 220 10% 15%;
+    --ring: 280 100% 62%;
 
     --radius: 0.75rem;
     
-    /* Custom colors for the design */
-    --gradient-start: 265 80% 62%;
-    --gradient-end: 280 70% 55%;
-    --glow-color: 265 80% 62%;
+    /* Neon colors for the futuristic design */
+    --neon-cyan: 180 100% 50%;
+    --neon-purple: 280 100% 62%;
+    --glow-cyan: 180 100% 50%;
+    --glow-purple: 280 100% 62%;
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -79,48 +80,61 @@ All colors MUST be HSL.
     overflow-x: hidden;
   }
   
-  /* Animated gradient background */
+  /* Interactive particle background */
   .animated-bg {
-    background: linear-gradient(135deg, 
-      hsl(var(--background)) 0%, 
-      hsl(260 20% 6%) 50%, 
-      hsl(var(--background)) 100%);
-    background-size: 200% 200%;
-    animation: gradient-shift 15s ease infinite;
-  }
-  
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  
-  /* Glow effect for buttons */
-  .glow-button {
     position: relative;
+    background: #0B0B0D;
     overflow: hidden;
+  }
+  
+  /* Neon glow effect for buttons */
+  .neon-button {
+    position: relative;
+    background: linear-gradient(90deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
+    border: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5),
+                0 0 40px hsl(var(--neon-purple) / 0.5);
+  }
+  
+  .neon-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.8),
+                0 0 60px hsl(var(--neon-purple) / 0.8),
+                0 0 90px hsl(var(--neon-cyan) / 0.4);
+  }
+  
+  /* Neon glass container */
+  .neon-glass {
+    background: rgba(11, 11, 13, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid hsl(var(--neon-cyan) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.2),
+                0 0 40px hsl(var(--neon-purple) / 0.1);
     transition: var(--transition-smooth);
   }
   
-  .glow-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: hsl(var(--glow-color) / 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+  .neon-glass:hover {
+    border-color: hsl(var(--neon-cyan) / 0.6);
+    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.4),
+                0 0 60px hsl(var(--neon-purple) / 0.3);
   }
   
-  .glow-button:hover::before {
-    width: 300px;
-    height: 300px;
+  /* Neon text glow */
+  .neon-text {
+    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
+                 0 0 20px hsl(var(--neon-purple) / 0.6),
+                 0 0 30px hsl(var(--neon-cyan) / 0.4);
   }
   
-  .glow-button:hover {
-    box-shadow: 0 0 20px hsl(var(--glow-color) / 0.6),
-                0 0 40px hsl(var(--glow-color) / 0.4);
+  /* Particle container */
+  #particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
   }
 }

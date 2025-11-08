@@ -8,6 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
+    /* Cyberpunk Dark Theme */
     --background: 240 10% 4%;
     --foreground: 180 100% 95%;
 
@@ -53,78 +54,56 @@ All colors MUST be HSL.
     --gradient-neon: linear-gradient(135deg, hsl(var(--neon-cyan)), hsl(var(--neon-magenta)));
     --gradient-bg: linear-gradient(180deg, hsl(var(--background)), hsl(240 10% 8%));
   }
+}
 
-  .dark {
-    /* Same as light mode for this design - always dark theme */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(240 10% 8%) 100%);
+    min-height: 100vh;
+  }
+
+  /* Glow utilities */
+  .glow-cyan {
+    text-shadow: 0 0 10px hsl(var(--neon-cyan)), 0 0 20px hsl(var(--neon-cyan)), 0 0 30px hsl(var(--neon-cyan));
+  }
+
+  .glow-magenta {
+    text-shadow: 0 0 10px hsl(var(--neon-magenta)), 0 0 20px hsl(var(--neon-magenta)), 0 0 30px hsl(var(--neon-magenta));
+  }
+
+  .glow-purple {
+    text-shadow: 0 0 10px hsl(var(--neon-purple)), 0 0 20px hsl(var(--neon-purple)), 0 0 30px hsl(var(--neon-purple));
+  }
+
+  .box-glow-cyan {
+    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5), 0 0 40px hsl(var(--neon-cyan) / 0.3);
+  }
+
+  .box-glow-magenta {
+    box-shadow: 0 0 20px hsl(var(--neon-magenta) / 0.5), 0 0 40px hsl(var(--neon-magenta) / 0.3);
+  }
+
+  .box-glow-purple {
+    box-shadow: 0 0 20px hsl(var(--neon-purple) / 0.5), 0 0 40px hsl(var(--neon-purple) / 0.3);
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    font-family: 'Vazirmatn', sans-serif;
   }
 
   body {
     @apply bg-background text-foreground;
-    overflow-x: hidden;
-  }
-  
-  /* Interactive particle background */
-  .animated-bg {
-    position: relative;
-    background: #0B0B0D;
-    overflow: hidden;
-  }
-  
-  /* Neon glow effect for buttons */
-  .neon-button {
-    position: relative;
-    background: linear-gradient(90deg, hsl(var(--neon-cyan)), hsl(var(--neon-purple)));
-    border: none;
-    transition: var(--transition-smooth);
-    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.5),
-                0 0 40px hsl(var(--neon-purple) / 0.5);
-  }
-  
-  .neon-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.8),
-                0 0 60px hsl(var(--neon-purple) / 0.8),
-                0 0 90px hsl(var(--neon-cyan) / 0.4);
-  }
-  
-  /* Neon glass container */
-  .neon-glass {
-    background: rgba(11, 11, 13, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid hsl(var(--neon-cyan) / 0.3);
-    box-shadow: 0 0 20px hsl(var(--neon-cyan) / 0.2),
-                0 0 40px hsl(var(--neon-purple) / 0.1);
-    transition: var(--transition-smooth);
-  }
-  
-  .neon-glass:hover {
-    border-color: hsl(var(--neon-cyan) / 0.6);
-    box-shadow: 0 0 30px hsl(var(--neon-cyan) / 0.4),
-                0 0 60px hsl(var(--neon-purple) / 0.3);
-  }
-  
-  /* Neon text glow */
-  .neon-text {
-    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.8),
-                 0 0 20px hsl(var(--neon-purple) / 0.6),
-                 0 0 30px hsl(var(--neon-cyan) / 0.4);
-  }
-  
-  /* Particle container */
-  #particles-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
   }
 }
